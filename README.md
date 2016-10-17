@@ -4,7 +4,7 @@
 
 **Demo of App**:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/GT2jvl3qxeI?rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe><p><a href="https://www.youtube.com/watch?v=GT2jvl3qxeI">Star Wars Trek</a></p>
+[![](http://img.youtube.com/vi/GT2jvl3qxeI/0.jpg)](https://www.youtube.com/watch?v=GT2jvl3qxeI "Star Wars Trek")
 
 The user should be presented with characters from the Star Wars and Star Trek films (scrollable via two `UIScrollView`'s). They need to select one character from each film (by tapping the `UIImageView`). After selecting two characters (one from each show), you should segue over to another `UIViewController` that will display the selected images (two in total). The user should then be able to drag the two `UIImageView`'s around the screen (like in the demo) and simulate a fight!
 
@@ -165,9 +165,9 @@ As well, create the following stored properties (right below your outlets):
     var starTrekImage: UIImage!
 ```
 
-Next, we will want to setup a segue between the two view controllers. Watch this video to see how to do that:
+Next, we will want to setup a segue between the two view controllers. Watch this video (no sound) to see how to do that:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/D30fRpi2i0s?rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe><p><a href="https://www.youtube.com/watch?v=D30fRpi2i0s">Star Wars Trek Segue</a></p>
+[![](http://img.youtube.com/vi/D30fRpi2i0s/0.jpg)](https://www.youtube.com/watch?v=D30fRpi2i0s "Segue")
 
 ---
 
