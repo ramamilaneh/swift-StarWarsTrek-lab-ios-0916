@@ -113,7 +113,7 @@
                         <outlet property="starWarsOne" destination="7Oy-vA-AXd" id="Le3-sn-VQk"/>
                         <outlet property="starWarsThree" destination="Lgn-Dp-y1P" id="bC9-NF-9PW"/>
                         <outlet property="starWarsTwo" destination="3QH-Mh-3AH" id="b1t-yY-zB5"/>
-                        <segue destination="3Fw-fh-jgM" kind="showDetail" identifier="fightSegue" id="knW-VW-dsu"/>
+                        <segue destination="3Fw-fh-jgM" kind="showDetail" identifier="fightSegue" id="0Vi-Fh-LaG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
