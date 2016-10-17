@@ -167,7 +167,7 @@ As well, create the following stored properties (right below your outlets):
 
 Next, we will want to setup a segue between the two view controllers. Watch this video to see how to do that:
 
-< iframe width="560" height="315" src="https://www.youtube.com/embed/D30fRpi2i0s?rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe><p><a href="https://www.youtube.com/watch?v=D30fRpi2i0s">Star Wars Trek Segue</a></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/D30fRpi2i0s?rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe><p><a href="https://www.youtube.com/watch?v=D30fRpi2i0s">Star Wars Trek Segue</a></p>
 
 ---
 
