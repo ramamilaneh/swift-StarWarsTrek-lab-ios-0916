@@ -14,6 +14,8 @@ class FightVC: UIViewController {
     
     var starWarsImage: UIImage!
     var starTrekImage: UIImage!
+    
+    let randomColors: [UIColor] = [.blue, .gray, .green, .red, .purple, .black]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,13 +33,26 @@ class FightVC: UIViewController {
         let imageview = sender.view as! UIImageView
         let point = sender.location(in: view)
         imageview.center = point
+        collision()
+        
     }
     
     func didMoveStarWars(_ sender: UIPanGestureRecognizer) {
         let imageview = sender.view as! UIImageView
         let point = sender.location(in: view)
         imageview.center = point
+        collision()
     }
-
+    
+    
+    func collision() {
+        if (starWarsImageView.frame.intersects(starTrekImageView.frame)) {
+            let randomIndex = Int(arc4random_uniform(UInt32(randomColors.count)))
+            let color = randomColors[randomIndex]
+            view.backgroundColor = color
+        }
+    }
+    
+    
 
 }

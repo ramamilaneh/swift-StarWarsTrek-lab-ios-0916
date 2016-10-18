@@ -206,7 +206,13 @@ How do you do that? Well..... I leave that up to you :)
 
 Make sure user interaction is enabled on both your `UIImageView`'s. 
 
+---
 
+**Advanced**:
+
+Look to see if the two `UIImageView`'s are colliding, if so.. change the `backgroundColor` of the `view` to some random color, like so:
+
+[![](http://img.youtube.com/vi/VefofQB__80/0.jpg)](https://www.youtube.com/watch?v=VefofQB__80 "Star Wars Trek")
 
 
 
