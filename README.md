@@ -6,7 +6,7 @@
 
 [![](http://img.youtube.com/vi/GT2jvl3qxeI/0.jpg)](https://www.youtube.com/watch?v=GT2jvl3qxeI "Star Wars Trek")
 
-The user should be presented with characters from the Star Wars and Star Trek films (scrollable via two `UIScrollView`'s). They need to select one character from each film (by tapping the `UIImageView`). After selecting two characters (one from each show), you should segue over to another `UIViewController` that will display the selected images (two in total). The user should then be able to drag the two `UIImageView`'s around the screen (like in the demo) and simulate a fight!
+The user should be presented with characters from the Star Wars and Star Trek films (scrollable via two `UIScrollView`'s). They need to select one character from each film (by tapping the `UIImageView`). After selecting two characters (one from each universe), you should segue over to another `UIViewController` that will display the selected images (two in total). The user should then be able to drag the two `UIImageView`'s around the screen (as in the demo) and simulate a fight!
 
 # Instructions
 
@@ -14,34 +14,34 @@ Just as if you were presented with the ingredients of making an apple pie (apple
 
 In the `Main.storyboard`, in your first `View Controller` it should be made up of the following "ingredients":
 
-* Two(2) `UILabel`'s.
-* Two(2) `UIStackView`'s.
-* Two(2) `UIScrollView`'s.
-* Eight(8) `UIImageView`'s.
+* Two(2) `UILabel`s.
+* Two(2) `UIStackView`s.
+* Two(2) `UIScrollView`s.
+* Eight(8) `UIImageView`s.
 
 I would prefer that you take a stab at making this work with just those instructions for now. Struggling through something like this is a great way to become familiar with Interface Builder (even if you don't get the answer!). But... below are some hints to help you out if you need them:
 
-The hints below only relate to the top Scroll View and its subviews and not the scroll view at the bottom of the view. Considering they're both similar, if you can get one to work--the other is exactly the same (just in a different location).
+The hints below only relate to the top Scroll View and its subviews and not the scroll view at the bottom of the view. Considering they're both similar, if you can get one to work, you'll have what you need to get the other to work.
 
 Hints:  
 * The top Scroll view has paging enabled.
-* The top Scroll Views Center Y constraint is equal to the Views Center Y with a multiplier of 0.6.
-* The top Scroll Views height constraint is equal to the Views height with a multiplier of 0.3.
-* The top Scroll Views Center X constraint is equal to the Views Center X.
-* The top Scroll Views aspect ratio is 1:1.
-* The top Stack View (as a subview of the top Scroll View) has its top, bottom, leading and trailing constraints equal to its superviews top, bottom, leading and trailing (hint: the pin tool!).
+* The top Scroll View's Center Y constraint is equal to the View's Center Y with a multiplier of 0.6.
+* The top Scroll View's height constraint is equal to the View's height with a multiplier of 0.3.
+* The top Scroll View's Center X constraint is equal to the View's Center X.
+* The top Scroll View's aspect ratio is 1:1.
+* The top Stack View (as a subview of the top Scroll View) has its top, bottom, leading and trailing constraints equal to its superview's top, bottom, leading and trailing (subhint: remember the pin tool!).
 * The top Stack View's height constraint is equal to the top Scroll Views height.
-* The top Stack Views aspect ratio should be 4:1.
-* The top Stack Views alignment should be set to Fill
-* The Top Stack Views distribution should be set to Fill Equally
-* The four ImageViews within this top Stack View should have their content mode set to to Aspect Fill, User Interaction Enabled should be checked and Clip to Bounds should be checked.
+* The top Stack View's aspect ratio should be 4:1.
+* The top Stack View's alignment should be set to Fill
+* The Top Stack View's distribution should be set to Fill Equally
+* The four ImageViews within this top Stack View should have their content mode set to to Aspect Fill, and User Interaction Enabled should be checked and Clip to Bounds should be checked.
 * The Star Wars UILabel should be constrained right above the top Scroll View.
 
 ---
 
-Once your layout is complete (and working!) you go through the following instructions:
+Once your layout is complete (and working!) go through the following instructions:
 
-Create `IBOutlet`'s for all of the `UIImageView`'s you have within the two `UIStackView`'s and give them the following names:
+Create `IBOutlet`s for all of the `UIImageView`s you have within the two `UIStackView`s and give them the following names:
 
 ```swift
     @IBOutlet weak var starWarsOne: UIImageView!
@@ -62,7 +62,7 @@ After creating those outlets, create the following instance properties (right be
     var starTrekCharacter: UIImageView!
 ```
 
-Ultimately, whenever someone "selects" one of the `UIImageView`'s by tapping on it (which we will setup shortly), we will assign that tapped `UIImageView` to one of these stored properties.
+Ultimately, whenever someone "selects" one of the `UIImageView`s by tapping on it (which we will setup shortly), we will assign that tapped `UIImageView` to one of these stored properties.
 
 ---
 
@@ -119,7 +119,7 @@ Your `viewDidLoad()` function should now look like this:
 
 ---
 
-Lets go back to the `starWarsCharacterChosen(_:)` function you created above. It's time to implement it now. The parameter name we can work with here is called `sender` which is of type `UITapGestureRecognizer`. Whenever a Star Wars `UIImageView` is tapped, this function is called and the `UITapGestureRecognizer` object associated with that tapped `UIImageView` is passed into this function as an argument. How can we access the `UIView` instance (in this case, we have more detail--meaning it's a `UIImageView` instance that's associated with this `UITapGestureRecognizer` instance). Any `UITapGestureRecognizer` instance has access to the following stored property. `view`.
+Lets go back to the `starWarsCharacterChosen(_:)` function you created above. It's time to implement it now. The parameter name we can work with here is called `sender` which is of type `UITapGestureRecognizer`. Whenever a Star Wars `UIImageView` is tapped, this function is called and the `UITapGestureRecognizer` object associated with that tapped `UIImageView` is passed into this function as an argument. How can we access the `UIView` instance (in this case, we have more detail—-meaning it's a `UIImageView` instance that's associated with this `UITapGestureRecognizer` instance). Any `UITapGestureRecognizer` instance has access to the following stored property. `view`.
 
 `sender.view` is how we can access the `UIView` instance associated with this `UITapGestureRecognizer`. But like I said, it's not a `UIView` instance, more specifically it's a `UIImageView`. So in order to grab access to the `UIImageView` instance associated with the `UITapGestureRecognizer` object, we need to type in the following code:
 
@@ -129,15 +129,16 @@ let chosenImageView = sender.view as! UIImageView
  
 This `chosenImageView` constant is of type `UIImageView`. It's also a reference to the `UIImageView` instance tapped on screen. It means we can change/mutate/update or do whatever we want to this `chosenImageView` constant and it will change the appearance of the `UIImageView` on screen.
 
-So.. lets do that! Set the `borderWidth` of this `chosenImageView` constant to 2.0 (this has to be done through the `layer` property (available to all `UIView`'s)).  Also, set the `borderColor` to `UIColor.green.cgColor`. 
+So.. lets do that! Set the `borderWidth` of this `chosenImageView` constant to 2.0 (this has to be done through the `layer` property (available to all `UIView`s)).  Also, set the `borderColor` to `UIColor.green.cgColor`. 
 
 After doing all of that, we should assign a value to our `starWarsCharacter` stored property. We should assign it the value `chosenImageView`.
 
-Run your app and make sure that when tapping any of the Star Wars `UIImageView`'s that a green border appears around every single one.
+Run your app and make sure that when tapping any of the Star Wars `UIImageView`s that a green border appears around every single one.
 
-You might notice that when tapping multiple `UIImageView`'s that each one gets its own green border.. but that shouldn't be. What do I mean by that? Well.. we really only want a user to be able to select just one `UIImageView`. How can solve a problem like that?
+You might notice that when tapping multiple `UIImageView`s that each one gets its own green border.. but that shouldn't be. What do I mean by that? Well.. we really only want a user to be able to select just one `UIImageView`. How can solve a problem like that?
 
 We can do that with the following line of code. This piece of code needs to be the very first line of code within this function. That way, it will immediately set the `borderWidth` of what was the previously chosen `UIImageView` to 0.0.
+
 ```swift
 if starWarsCharacter != nil { starWarsCharacter.layer.borderWidth = 0.0 }
 ```
@@ -151,7 +152,7 @@ Implement the `starTrekCharacterChosen(_:)` function you created above. You shou
 Head over to the `Main.storyboard` file. Create another View Controller Scene. As well, create a `DetailViewController.swift` file that subclasses from `UIViewController`. Setup the custom class of this new View Controller scene to your `DetailViewController`. In Interface Builder, constrain two `UIImageView`'s wherever you like. They should be the same size though (same `width` and `height`). 
 
 
-Create outlets for the two `UIImageView`'s to the `DetailViewController.swift`
+Create outlets for the two `UIImageView`s to the `DetailViewController.swift`
 
 ```swift
     @IBOutlet weak var starWarsImageView: UIImageView!
@@ -183,7 +184,7 @@ Now the question is.. where do we write this code? It should be the last thing c
 
 ---
 
-You should now implement `prepare(for:sender:)` function available to all `UIViewController`'s within the `ViewController.swift` file. This function will get called anytime someone calls on `performSegue(withIdentifier:sender:)` which is what we're doing in the above function.
+You should now implement `prepare(for:sender:)` function available to all `UIViewController`s within the `ViewController.swift` file. This function will get called anytime someone calls on `performSegue(withIdentifier:sender:)` which is what we're doing in the above function.
 
 In our implementation of this function, we need to grab hold of the `destionation` view controller from the `segue` object and assign values to both its `starWarsImage` and `starTrekImage` instance properties. What values do we assign to them? Well... take at both the `starWarsCharacter` and `starTrekCharacter` properties, they are of type `UIImageView`. In order to grab the`UIImage` associated with a `UIImageView`, you need to access its `image` property.
 
@@ -204,20 +205,12 @@ You should create a `UIPanGestureRecognizer` and add it to the `starTrekImageVie
 
 How do you do that? Well..... I leave that up to you :)
 
-Make sure user interaction is enabled on both your `UIImageView`'s. 
-
----
+Make sure user interaction is enabled on both your `UIImageView`s. 
 
 **Advanced**:
 
-Look to see if the two `UIImageView`'s are colliding, if so.. change the `backgroundColor` of the `view` to some random color, like so:
-
-[![](http://img.youtube.com/vi/VefofQB__80/0.jpg)](https://www.youtube.com/watch?v=VefofQB__80 "Star Wars Trek")
-
-
-
+Look to see if the two `UIImageView`s are colliding, if so.. change the `backgroundColor` of the `view` to some random color, like so:
  
-
-
+[![](http://img.youtube.com/vi/VefofQB__80/0.jpg)](https://www.youtube.com/watch?v=VefofQB__80 "Star Wars Trek")
 
 <a href='https://learn.co/lessons/StarWarsTrekLab' data-visibility='hidden'>View this lesson on Learn.co</a>
